@@ -40,7 +40,7 @@ function! GetCommentLine(line_start)
 	if s:comment_start != 0
 		let s:current_line = s:comment_start
 		let s:is_comment = 1
-		while s:is_comment != -1
+		while (s:is_comment != -1) && (s:current_line != line("$"))
 			let s:current_line = s:current_line + 1
 			exec "call cursor(".(s:current_line).",1)"
 			exec "let s:is_comment = match(getline('.'),'^\s*".a:line_start ."')"
