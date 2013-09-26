@@ -28,7 +28,7 @@ endfunction
 function! GetCommentBlock(block_start, block_end)
 	call cursor(1,1)
 	exec "let s:comment_start = search('^\s*".a:block_start ."', 'c')"
-	exec "let s:comment_end = search('"a:block_end."','W')"
+	exec "let s:comment_end = search('".a:block_end."','W')"
 	return [s:comment_start,s:comment_end]
 endfunction
 
